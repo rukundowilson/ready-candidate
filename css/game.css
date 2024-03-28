@@ -1,0 +1,161 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.side-bar{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+.home-navigator{
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    max-width: 300px;
+    background: blue;
+    padding: 5px;
+    color: white;
+    display: block;
+    border-radius: 10px;
+    margin: 10px;
+}
+.hang-holl{
+    height: 100px;
+    margin: 0;
+    padding: 0;
+}
+.ready1{
+    background-color: green;
+    padding: 10px;
+    align-items: center;
+}
+#img-sequence img{
+    border-radius: 10px;
+    height: 320px;
+    width: 220px;
+    display: block;
+}
+.game-updates{
+    font-size: 1.2rem;
+    background-color: rgba(255, 0, 0, 0.393);
+    padding: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    display: block;
+}
+.main-container{
+    display: flex;
+}
+.title{
+    background-color: rgb(23, 191, 191);
+    border-radius: 7px;
+    display: flex;
+    gap: 10px;
+}
+.title h3{
+    background-color: green;
+    padding: 12px;
+    border-radius: 10px;
+    width: 150px;
+}
+/* ----------------start---------------- */
+#start{
+    padding: 10px;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    background-color: green;
+    color: #fff;
+}
+#claim-time{
+    padding: 10px;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    background-color: green;
+    color: #fff;
+}
+#claim-time:hover{
+    background-color: hsla(120, 100%, 25%, 0.589);
+}
+#start:hover{
+    background-color: hsla(120, 100%, 25%, 0.589);    
+}
+.title h2{
+    margin-right: 10px;
+}
+.counter{
+    background-color: blue;
+    padding: 10px;
+    border-radius: 10px;
+}
+.game-control{
+    font-size: 1.2rem;
+}
+.regulations{
+    padding: 5px;
+}
+form{
+    background-color: blue;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 9px;
+}
+#get-letter{
+    text-align: center;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    max-width: 120px;
+    display: block;
+    margin: 0 auto;
+}
+#sbmt{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    display: block;
+    margin: 0 auto;
+}
+.progress{
+    background-color: blue;
+    padding: 10px;
+}
+#t-attempts{
+    position: relative;
+    left: 50%;
+    right: 50%;
+    font-size: 2rem;
+}
+fieldset{
+    padding: 32px;
+}
+#range-status{
+    width: 600px;
+}
+.header-status{
+    background-color: chocolate;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+}
+.man-saved{
+    background-color: black;
+    padding: 10px;
+    border-radius: 25%;
+    text-align: center;
+    margin: 10px;
+    color: red;
+    
+}
+#display-range p{
+    font-size: 1.5rem;
+    padding: 10px;
+    background-color: green;
+    border-radius: 10px;
+    margin-right:100px;
+}

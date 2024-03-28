@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>games</title>
+    <script src="../js/games.js"></script>
+    <link rel="stylesheet" href="../css/hangman.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+</head>
+<body>
+    <a href="home.html" class="game-btn home"><i class="uil uil-home"></i></a>
+    <div class="result">
+        <div class="ifwon">
+            <h1 id="out-time">
+                conglatulations you saved the man!
+                game won.
+            </h1>
+            <button type="reset" id="reset"><i class="uil uil-redo"></i></button>
+
+        </div>
+    </div>
+     <div class="control-room">
+         <div class="side-bar">
+            <h1 id="life">SAVE HIM</h1>
+            <div class="images"><img src="../media/images/student-to-task-hangman.png" alt="" srcset=""></div>
+            <hr>
+            <div class="game-btn counter">
+                <h1 id="digital-clock">00:40</h1>
+            </div>
+            <hr>
+            <div class="game-btn attempts">
+                <h2>attempts-left<br><span id="t-attempts">0</span></h2>
+            </div>
+
+         </div>
+         <div class="main-content">
+            <div class="excluded">
+                <h1>excluded letter<br><span id="exclude">none</span></h1>
+            </div>
+            <div class="user">
+                <div id="hints">
+                    <h1>HINTS </h1>
+                    <p>hint1: <span id="hint1">----------</span></p>
+                    <p>hint2: <span id="hint2">----------</span></p>
+                
+                </div>
+                <div id="progress">
+                    <H1>current status <br><span id="d-progress">- - - -</span> </H1>
+                </div>
+                <div id="form">
+                    <form action="">
+                        <input type="text" maxlength="1" name="" id="user-input" placeholder="letter" autocomplete="off"><br><br>
+                        <input type="submit" id="sbmt">
+                    </form>
+                </div>
+            </div>
+         </div>
+     </div>
+</body>
+</html>

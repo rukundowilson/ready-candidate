@@ -1,0 +1,27 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.contain-me{
+    display: flex;
+    gap: 30px;
+}
+.col1{
+    color: white;
+    padding: 20px;
+    background-color: #2B3E51;
+}
+.col1>*{
+    margin: 15px 0 15px 0;
+}
+.col1 a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+.col2{
+    padding: 20px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+}
