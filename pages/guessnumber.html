@@ -4,10 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="quess.js"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="../js/quess.js"></script>
+    <link rel="stylesheet" href="../css/numberquess.css">
 </head>
 <body>
     hello friend!
+    <header class="number-quess">
+        <nav>
+            <div class="shared go-home">
+                <a href="home.html" class="game-btn home"><i class="uil uil-home"></i></a>
+            </div>
+            <div class="shared about">
+                <a href=""><h3>about game</h3></a>
+            </div>
+            <div class="shared revels">
+                <a href=""><h3>choose revel</h3></a>
+            </div>
+        </nav>
+        <!-- setting play ground -->
+        <section class="interface">
+            <div id="id">
+                <form action="" id="fill-number">
+                    <input id="user-guess" type="text" placeholder="quess the number l'm thinking of">
+                    <input id="sbmt" type="submit">
+                </form>
+            </div>
+
+        </section>
+        <section class="interface process">
+            <div id="hello-friend">
+                <img src="../media/images/wondering.png" alt="">
+                <div class="hello">
+                    <p>hello friend!</p>
+                    <p>can you quess the number <br>That l'm thinking of? yu have <br>
+                       n attempts and 60s to quess correct number
+                    </p>
+                </div>
+            </div>
+            <div class="manage-status">
+                <div class="status">
+                    <div class="status">
+                        <div class="box">
+                            <h1 class="">count down</h1>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <div class="box">
+                            <h1 class="counter">60S</h1>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <h1>attempts left</h1>
+                    </div>
+                </div>
+                <div class="status">
+                    <div class="box">
+                        <h1 class="attempts">10A</h1>
+                    </div>
+                </div>
+                <br>
+                <div class="message" style="text-align: center;">
+                    <h2 style="color: green;">status messages</h3>
+                    <h3 id="progress" style="color: red;"> status message: no thing yet</h3>
+                    <h3 style="color: black;">you Just typed: <span id="you-typed"> no thing yet</span></h3>
+                </div>
+            </div>
+        </section>
+    </header>
     
 </body>
 </html>

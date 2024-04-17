@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.banner{
+    padding-top: 90px;
+}
+.inner-banner{
+    width: 100%;
+    background: hsl(184, 89%, 4%);
+    padding: 10px;
+
+}
+.inner-banner>*{
+    margin: 30px;
+    display: inline-block;
+}
+.main{
+    margin: 20px 0 20px 0;
+    display: flex;
+    justify-content: center;
+}
+.uil-telescope{
+    color: rgba(255, 255, 255, 0.644);
+    font-size: 6rem;
+}
+.single-paragraph{
+    color: #666;
+    line-height: 32px;
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.055);
+    margin: 20px;
+}
+.single-paragraph li{
+    margin: 10px 20px 10px 30px;
+}
+.grade{
+    background-color: hsl(184, 89%, 4%);
+    padding: 40px;
+    display: inline-block;
+    margin: 20px 10px 20px 10px;
+}
+.single-paragraph a{
+    color: #fff;
+}
+.key-points{
+    
+    display: flex;
+    justify-content: center;
+}
+.key{
+    padding: 20px;
+    background-color: rgba(128, 128, 128, 0.055);
+    display: block;
+    margin: 20px;
+    text-decoration: none;
+    color: #000000a2;
+}

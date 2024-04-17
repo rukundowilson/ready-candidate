@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.core5{
+    margin: 20px; 
+}
+.core5 ul li{
+    list-style-type: decimal;
+    margin: 10px 0 10px 0;
+}
