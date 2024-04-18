@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const animal = ['human', 'gorilla', 'lion', "bird", "owl", "snake"];
         const others = ['water', 'food', 'basket', "knife", "bottle"];
         const combination = [...fruits, ...animal, ...others];
-
         const randomIndex = Math.floor(Math.random() * combination.length);
         
         callback(combination[randomIndex]); 
@@ -59,10 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Handle user's guess
-    function guess() {
+    function guess(letter) {
         let n = 0;
         const chars = secretWord.split("");
-        const guessed = document.getElementById("user-input").value;
+        const guessed = letter;
         const used = updatedSecret;
 
         if (used.includes(guessed)) {
@@ -85,11 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (updatedSecret.join("") === secretWord) {
             changeBackgroundColor();
             document.querySelector('.ifwon').style.display = "block";
-            document.getElementById("out-time").textContent = "Congratulations! You saved the man! Game won.";
+            document.getElementById("out-time").textContent= "Congratulations! You saved the man!";
+            document.getElementById("out-time").style.color="#fff"
+            document.querySelector("#life").innerHTML = `THANK YOU`;
             running = false;
         }
-
-        document.getElementById("user-input").value = ""; // Clear input field
     }
 
     // Update status display with guessed letters
@@ -119,9 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
         changeBackgroundColor();
         document.querySelector('.ifwon').style.display = "block";
         document.getElementById("out-time").textContent = message;
-        document.querySelector(".images").innerHTML = `<img src="../media/images/hang-him.png">`;
+        document.querySelector(".images").innerHTML = `<img src="../media/images/hang-him.png">`
         document.querySelector("#life").innerHTML = `MAN DEAD`;
-        document.querySelector("input").style.background="rgba(0, 0, 0, 0.5)";
         maxTime = 0;
         timing.innerHTML = `00:${maxTime}`;
         running = false;
@@ -135,25 +133,46 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         displayAttempts.innerHTML = `${totalAttempts}`;
     }
+    // initialize vitual keyboard
+
+    // variables
+    const includeLetter="abcdefghijklmnopqrstuvwxyz".split('');
+    function initalizeKeyboard(){
+        const keyboard=document.querySelector(".keyboard");
+        includeLetter.forEach(letter=>{
+            const button=document.createElement("button");
+            button.textContent=letter;
+            button.addEventListener('click',()=>{
+                updateStatus(letter)
+            })
+            keyboard.appendChild(button);
+        })
+    }
+    function updateStatus(letter){
+        if (running) {
+            guess(letter);
+        }
+    }
+    initalizeKeyboard()
 
     // Event listener for form submission
-    document.querySelector("form").onsubmit = function() {
-        if (running) {
-            guess();
-        }
-        return false;
-    }
+    
 
     // Game reset
-    document.getElementById("reset").onclick = () => {
-        maxTime = 40;
-        document.querySelector(".images").innerHTML = `<img src="../media/images/readyHang.jpg">`;
-        gameResources(selectWord, hint);
-        document.getElementById("exclude").innerHTML = `None`;
-        dash_notation();
-        guess();
-        document.body.style.backgroundColor = "#fff";
-        document.querySelector('.ifwon').style.display = "none";
-        running = true;
+    function reset(){
+        document.getElementById("reset").onclick = () => {
+            maxTime = 40;
+            document.querySelector(".images").innerHTML = `<img src="../media/images/readyHang.jpg">`;
+            gameResources(selectWord, hint);
+            document.getElementById("exclude").innerHTML = `None`;
+            dash_notation();
+            guess();
+            document.body.style.backgroundColor = "#fff";
+            document.querySelector('.ifwon').style.display="none"
+            document.querySelector("#life").innerHTML = `SAVE ME`;
+            running = true;
+        }
     }
+    reset()
+    
 });

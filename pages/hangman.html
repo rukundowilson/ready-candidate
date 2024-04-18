@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>games</title>
-    <script src="../js/games.js"></script>
+    <script src="../js/hangman.js"></script>
     <link rel="stylesheet" href="../css/hangman.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
 </head>
@@ -16,7 +16,7 @@
                 conglatulations you saved the man!
                 game won.
             </h1>
-            <button type="reset" id="reset"><i class="uil uil-redo"></i></button>
+            <button type="" id="reset"><i class="uil uil-redo"></i></button>
 
         </div>
     </div>
@@ -30,7 +30,7 @@
             </div>
             <hr>
             <div class="game-btn attempts">
-                <h2>attempts-left<br><span id="t-attempts">0</span></h2>
+                <h2>attempts<br><span id="t-attempts">0</span></h2>
             </div>
 
          </div>
@@ -48,11 +48,8 @@
                 <div id="progress">
                     <H1>current status <br><span id="d-progress">- - - -</span> </H1>
                 </div>
-                <div id="form">
-                    <form action="">
-                        <input type="text" maxlength="1" name="" id="user-input" placeholder="letter" autocomplete="off"><br><br>
-                        <input type="submit" id="sbmt">
-                    </form>
+                <div class="keyboard">
+                    <!-- keys are packed vitually -->
                 </div>
             </div>
          </div>
