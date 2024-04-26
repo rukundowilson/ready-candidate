@@ -63,12 +63,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     setInterval(countDown,1000)
     // form handling
     function handleForm(){
-        // if ((document.getElementById("user-guess").value).length<1){
-        //     document.getElementById('sbmt').disabled=true;
-        // }
-        // else if ((document.getElementById("user-guess").value).length>1){
-        //     document.getElementById('sbmt').disabled=false;
-        // }
         document.getElementById("fill-number").onsubmit=function(){
             let userNum=Number(document.getElementById("user-guess").value);
             play(userNum);

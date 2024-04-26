@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let updatedSecret;
     let totalAttempts;
     let running = true;
-    let maxTime = 40;
+    let maxTime = 60;
     
     // DOM Elements
     const displayHint1 = document.getElementById("hint1");
@@ -21,19 +21,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Game setup
     function gameResources(callback, callback2) {
-        const fruits = ['mango', 'pinneaple', 'orange', "avocado"];
-        const animal = ['human', 'gorilla', 'lion', "bird", "owl", "snake"];
-        const others = ['water', 'food', 'basket', "knife", "bottle"];
-        const combination = [...fruits, ...animal, ...others];
+        const fruits = [
+            'mango', 'pinneaple', 'orange', "avocado","watermelon","banana","strawberrie","grape",
+            'lemons','papaya'
+        ];
+        const animal = [
+            'human', 'gorilla', 'lion', "bird", "owl", "snake","horse","cat","cheetah","turtle",
+            'tortoise','leopard','rabbit','donkey','bear','pig','cow','lizard','sheep','chameleon',
+            'giraffe','wolf','jellyfish'
+        ];
+        const others = [
+            'water', 'food', 'basket', "knife", "bottle","jellycan"
+        ];
+        const utensils=[
+            "fork","spoon","plate","dish","sourcepan","cupboard",
+        ];
+        const electronicDevice=[
+            "laptop","television","radio","telephone","walk tokie","printer","mouse","Keyboard","router","scanner","headphones",
+            "ipod"
+        ];
+        const combination = [...fruits, ...animal, ...others, ...electronicDevice, ...utensils];
         const randomIndex = Math.floor(Math.random() * combination.length);
         
         callback(combination[randomIndex]); 
-        callback2(fruits, animal, others);  
+        callback2(fruits, animal, others,electronicDevice,utensils);  
     }
 
     // Display hints based on word category
-    function hint(fruits, animal, others) {
-        const categories = { fruits, animal, others };
+    function hint(fruits, animal, others,electronicDevice,utensils) {
+        const categories = { fruits, animal, others,electronicDevice,utensils};
 
         for (const category in categories) {
             if (categories[category].includes(secretWord)) {
@@ -49,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         totalAttempts = secretWord.length * 2;
         displayAttempts.innerHTML = `${totalAttempts}`;
     }
+    
 
     // Initialize secret word with dashes
     function dash_notation() {
@@ -62,13 +79,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let n = 0;
         const chars = secretWord.split("");
         const guessed = letter;
-        const used = updatedSecret;
-
-        if (used.includes(guessed)) {
-            document.getElementById("exclude").innerHTML = `Letter ${guessed} is already used`;
-            return;
-        }
-
         while (n !== chars.length && running) {
             if (chars[n] === guessed) {
                 updatedSecret[n] = guessed;           
@@ -85,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             changeBackgroundColor();
             document.querySelector('.ifwon').style.display = "block";
             document.getElementById("out-time").textContent= "Congratulations! You saved the man!";
+            document.getElementById('reveal').innerHTML=secretWord;
             document.getElementById("out-time").style.color="#fff"
             document.querySelector("#life").innerHTML = `THANK YOU`;
             running = false;
@@ -103,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
             timing.innerHTML = `00:${maxTime}`;
         } else if (maxTime === 0 && running) {
             handleGameLoss("Time out! You lost the game.");
+            document.getElementById('reveal').innerHTML=secretWord;
         }
     }
     setInterval(timer,1000);
@@ -110,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Change background color
     function changeBackgroundColor() {
-        document.body.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        document.body.style.backgroundColor = "rgba(0, 128, 0, 0.548)";
     }   
 
     // Handle game loss
@@ -118,8 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
         changeBackgroundColor();
         document.querySelector('.ifwon').style.display = "block";
         document.getElementById("out-time").textContent = message;
-        document.querySelector(".images").innerHTML = `<img src="../media/images/hang-him.png">`
-        document.querySelector("#life").innerHTML = `MAN DEAD`;
+        document.querySelector(".images").innerHTML = ` `;
+        document.getElementById('control').style.display="none";
         maxTime = 0;
         timing.innerHTML = `00:${maxTime}`;
         running = false;
@@ -130,6 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
         totalAttempts--;
         if (totalAttempts === 0) {
             handleGameLoss("Out of attempts! You lost.");
+            document.getElementById('reveal').innerHTML=secretWord;
         }
         displayAttempts.innerHTML = `${totalAttempts}`;
     }
@@ -155,24 +168,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     initalizeKeyboard()
 
-    // Event listener for form submission
+    // re run guess  if not happy with the word
     
-
     // Game reset
     function reset(){
         document.getElementById("reset").onclick = () => {
             maxTime = 40;
-            document.querySelector(".images").innerHTML = `<img src="../media/images/readyHang.jpg">`;
+            document.getElementById('control').style.display="flex";
+            document.querySelector(".images").innerHTML = `<img src="../media/images/readyHang.png">`;
             gameResources(selectWord, hint);
             document.getElementById("exclude").innerHTML = `None`;
             dash_notation();
             guess();
-            document.body.style.backgroundColor = "#fff";
+            document.body.style.backgroundColor = "rgba(0, 128, 0, 0.849)";
             document.querySelector('.ifwon').style.display="none"
             document.querySelector("#life").innerHTML = `SAVE ME`;
             running = true;
         }
     }
-    reset()
+    reset();
     
 });
